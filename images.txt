@@ -1,6 +1,103 @@
-nginx
-#支持私库
+# =========================================
+# 程序开发人员常用 Docker 镜像清单
+# =========================================
+
+# ---------- 1. Nginx / 反向代理 ----------
+nginx:latest
+nginx:alpine
+traefik:v2.11
+caddy:latest
+
+# ---------- 2. 编程语言运行环境 ----------
+# Java
+openjdk:8-jdk
+openjdk:11-jdk
+openjdk:17-jdk
+eclipse-temurin:17-jdk
+
+# Node.js
+node:18
+node:20
+node:18-alpine
+
+# Python
+python:3.10
+python:3.11-slim
+python:3.12-alpine
+
+# Go
+golang:1.22
+golang:1.22-alpine
+
+# Rust
+rust:latest
+rust:slim
+
+# ---------- 3. 数据库 & 缓存 ----------
+# SQL
+mysql:8.0
+postgres:16
+mariadb:11
+mssql/server:2022-latest
+
+# NoSQL
+redis:7
+mongo:6
+etcd:3.5
+couchdb:3
+
+# ---------- 4. 消息队列 ----------
+rabbitmq:management
+bitnami/kafka:latest
+apache/kafka:3.7
+nats:latest
+emqx:latest
+
+# ---------- 5. DevOps & 工具 ----------
+jenkins/jenkins:lts
+gitlab/gitlab-ce:latest
+gitea/gitea:latest
+sonarqube:latest
+minio/minio:latest
+portainer/portainer-ce:latest
+registry:2
+grafana/grafana:latest
+prom/prometheus:latest
+k6io/k6:latest
+
+# ---------- 6. K8s 相关 ----------
 k8s.gcr.io/kube-state-metrics/kube-state-metrics:v2.0.0
+k8s.gcr.io/pause:3.9
+bitnami/kubectl:latest
+rancher/local-path-provisioner:v0.0.24
+
+# ---------- 7. 常用 Web 应用 ----------
 xhofe/alist:latest
-#支持指定架构
---platform=linux/arm64 xiaoyaliu/alist
+xiaoyaliu/alist:latest
+vaultwarden/server:latest
+nextcloud:latest
+wordpress:php8.2-fpm
+
+# ---------- 8. 私库常用 ----------
+harbor.example.com/library/nginx:latest
+harbor.example.com/dev/java/openjdk:17
+harbor.example.com/dev/node/node:20
+harbor.example.com/apps/alist:latest
+
+# ---------- 9. 多架构支持示例 ----------
+# 可用于 arm64 / amd64 / armv7
+# docker pull --platform=linux/arm64 镜像名
+# docker pull --platform=linux/amd64 镜像名
+
+# 示例：
+# docker pull --platform=linux/arm64 xhofe/alist:latest
+# docker pull --platform=linux/amd64 node:20
+
+# ---------- 10. 调试工具 ----------
+busybox
+alpine
+curlimages/curl
+httpd:alpine
+nicolaka/netshoot
+ubuntu:22.04
+debian:bookworm-slim
